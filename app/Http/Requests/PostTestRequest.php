@@ -26,8 +26,10 @@ class PostTestRequest extends FormRequest
         return [
             'int_check' => 'required',
             'str_check' => 'required',
-            'int_input' => 'exclude_unless:int_check,true|required',
-            'str_input' => 'exclude_unless:str_check,true|required',
+// 他のフィールドの値によってバリデーションの振る舞いを変える時、かつ、必須以外のバリデーションをつけるとき
+//            'int_input' => 'null|required_if:int_check,true|string',
+            'int_input' => 'required_if:int_check,false',
+            'str_input' => 'required_if:str_check,true',
         ];
     }
 }
