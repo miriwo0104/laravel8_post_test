@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+@inject('testService', 'App\Services\TestService')
     <header></header>
     <main>
-        <form action="{{ route('post') }}" method="get">
+        {{ $testService->returnStr() }}
+{{--         <form action="{{ route('post') }}" method="get">
             @csrf
             <input type="radio" name="int_check" value="true">数字の入力 true
             <br>
@@ -61,7 +63,7 @@
                     <br>
                 @endif
             <button type="submit">送信</button>
-        </form>
+        </form> --}}
     </main>
     <footer></footer>
 </body>
